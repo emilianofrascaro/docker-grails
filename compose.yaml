@@ -1,0 +1,10 @@
+version: '3'
+services:
+  grails:
+    image: grails_5.3.3
+    command: /bin/bash -c "source /home/developer/.sdkman/bin/sdkman-init.sh && ./gradlew clean && grails run-app"
+    volumes:
+      - ./app:/home/developer/app
+    ports:
+      - "8888:8080" #Grails default port mapped to my local port 8888
+      - "5005:5005" #Grails debug port mapped to my local port 5005
